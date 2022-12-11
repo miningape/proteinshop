@@ -54,7 +54,7 @@ export function Item(props: { item: ItemsTable[0] }) {
   } = supabase.storage.from("images").getPublicUrl(image);
 
   return (
-    <>
+    <div>
       <div className="rounded-lg">
         <img
           src={publicUrl}
@@ -70,6 +70,6 @@ export function Item(props: { item: ItemsTable[0] }) {
       <ButtonComponent>Purchase Now</ButtonComponent>
       <ButtonComponent>Add to Cart</ButtonComponent>
       {/* </CardFooter> */}
-    </>
+    </div>
   );
 }
