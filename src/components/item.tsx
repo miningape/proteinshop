@@ -24,7 +24,7 @@ export function Item(props: { item: ItemsTable[0] }) {
   return (
     <div>
       <div className="rounded-lg">
-        <Image
+        <img
           src={image}
           alt={name}
           className="max-h-1/2  mx-auto w-max overflow-hidden rounded-lg"
