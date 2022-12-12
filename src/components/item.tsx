@@ -1,8 +1,8 @@
-import { ItemsTable } from "../types/types";
+import type { ItemsTable } from "../types/types";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { Database } from "../types/supabase";
+import type { Database } from "../types/supabase";
 import { useEffect, useState } from "react";
-import { PostgrestError } from "@supabase/supabase-js";
+import type { PostgrestError } from "@supabase/supabase-js";
 
 export function Items(props: {}) {
   const supabase = useSupabaseClient<Database>();
@@ -48,16 +48,16 @@ const ButtonComponent = (props: { children: JSX.Element | string }) => {
 export function Item(props: { item: ItemsTable[0] }) {
   const { image, name, price } = props.item;
 
-  const supabase = useSupabaseClient<Database>();
-  const {
-    data: { publicUrl },
-  } = supabase.storage.from("images").getPublicUrl(image);
+  // const supabase = useSupabaseClient<Database>();
+  // const {
+  //   data: { publicUrl },
+  // } = supabase.storage.from("images").getPublicUrl(image);
 
   return (
     <div>
       <div className="rounded-lg">
         <img
-          src={publicUrl}
+          src={image}
           alt={name}
           className=" max-h-1/2  mx-auto w-max overflow-hidden rounded-lg"
         />

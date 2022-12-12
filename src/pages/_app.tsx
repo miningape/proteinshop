@@ -12,15 +12,15 @@ function MyApp({
 }: AppProps<{
   initialSession: Session;
 }>) {
-  const [supabase] = useState(() => createBrowserSupabaseClient<Database>());
+  // const [supabase] = useState(() => createBrowserSupabaseClient<Database>());
 
   return (
-    <SessionContextProvider
-      supabaseClient={supabase}
-      initialSession={pageProps.initialSession}
-    >
-      <Component {...pageProps} />
-    </SessionContextProvider>
+    // <SessionContextProvider
+    //   supabaseClient={supabase}
+    //   initialSession={pageProps.initialSession}
+    // >
+    <Component {...pageProps} />
+    // </SessionContextProvider>
   );
 }
 export default MyApp;
