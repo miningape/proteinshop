@@ -1,9 +1,10 @@
-import { createClient, PostgrestError } from "@supabase/supabase-js";
-import { GetStaticProps, GetStaticPropsResult } from "next";
+import type { PostgrestError } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
+import type { GetStaticPropsResult } from "next";
 import { Item } from "../components/item";
 import { env } from "../env/server.mjs";
-import { Database } from "../types/supabase";
-import { ItemsTable } from "../types/types";
+import type { Database } from "../types/supabase";
+import type { ItemsTable } from "../types/types";
 
 type ItemsProps = {
   data: ItemsTable | null;

@@ -3,39 +3,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import type { Database } from "../types/supabase";
 import { useEffect, useState } from "react";
 import type { PostgrestError } from "@supabase/supabase-js";
-
-export function Items(props: {}) {
-  const supabase = useSupabaseClient<Database>();
-
-  const [items, setItems] = useState<ItemsTable | null>(null);
-  const [error, setError] = useState<PostgrestError | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase.from("items").select("*");
-
-      setError(error);
-
-      if (data) {
-        setItems(data);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  return (
-    <div className="m-5 grid grid-cols-3 gap-4">
-      {error != null ? (
-        <>Error, {error}</>
-      ) : items === null || items.length === 0 ? (
-        <>Loading</>
-      ) : (
-        items.map((item, i) => <Item item={item} key={i} />)
-      )}
-    </div>
-  );
-}
+import Image from "next/image";
 
 const ButtonComponent = (props: { children: JSX.Element | string }) => {
   return (
@@ -56,10 +24,10 @@ export function Item(props: { item: ItemsTable[0] }) {
   return (
     <div>
       <div className="rounded-lg">
-        <img
+        <Image
           src={image}
           alt={name}
-          className=" max-h-1/2  mx-auto w-max overflow-hidden rounded-lg"
+          className="max-h-1/2  mx-auto w-max overflow-hidden rounded-lg"
         />
       </div>
 
