@@ -1,0 +1,6 @@
+/* styles/light.css */
+
+body {
+  background-color: theme('colors.dark');
+  color: theme('colors.light');
+}
